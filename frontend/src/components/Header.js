@@ -5,7 +5,7 @@ const Header = () => {
     <div>
       <header className="absolute top-0 left-0 right-0 p-4">
         <a href="/">
-          <div className="logo absolute left-0 p-4">
+          <div className="logo absolute left-0 p-4 text-2xl">
             Block<span className="press">Press</span>
           </div>
         </a>

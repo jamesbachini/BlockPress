@@ -7,13 +7,13 @@ contract BlockPress {
     mapping(string => string) public modules;
     mapping(string => string) public posts;
 
-    string[] public postArray;
+    string[] public postKeys;
     uint public postCount;
 
     function post(string memory _key, string memory _value) public {
         require(bytes(posts[_key]).length == 0, "Key already taken");
         posts[_key] = _value;
-        postArray[postCount] = _key;
+        postKeys.push(_key);
         postCount += 1;
     }
 
@@ -21,6 +21,4 @@ contract BlockPress {
         require(bytes(modules[_key]).length == 0, "Key already taken");
         modules[_key] = _value;
     }
-
-
 }
