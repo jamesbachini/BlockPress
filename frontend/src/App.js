@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Module from './Module';
-import Post from './Post';
-import Docs from './Docs';
+import Home from './views/Home';
+import Module from './views/Module';
+import Post from './views/Post';
+import Docs from './views/Docs';
 
 const App = () => {
   return (

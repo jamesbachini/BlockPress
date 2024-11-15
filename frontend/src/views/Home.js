@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
+import Header from './../components/Header';
+import Footer from './../components/Footer';
 
 const CONTRACT_ADDRESS = "0x2c9222CcB9aF492cE7209f3cDC26003C1186f0Ee";
 const CONTRACT_ABI = [{"inputs":[{"internalType":"string","name":"_key","type":"string"},{"internalType":"string","name":"_value","type":"string"}],"name":"module","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"","type":"string"}],"name":"modules","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_key","type":"string"},{"internalType":"string","name":"_value","type":"string"}],"name":"post","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"postArray","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"postCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"","type":"string"}],"name":"posts","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"version","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}];
@@ -86,24 +88,8 @@ const BlockPressApp = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center">
-      {/* Title in top left */}
-      <header className="absolute top-0 left-0 right-0 p-4">
-        <div className="logo absolute left-0 p-4">
-          Block<span className="press">Press</span>
-        </div>
-        <div className="absolute right-0 p-4">
-        <a href="/#/post" className="font-poppins text-gray-500">✒️ Write</a>
-        <a href="/#/module" className="ml-10 font-poppins text-gray-500">⚒️ Create</a>
-        </div>
-      </header>
-
-
-      <footer className="absolute bottom-0 p-4 bg-white">
-        <a href="https://github.com/jamesbachini/BlockPress" className="font-poppins text-gray-500">Github</a> |
-        <a href="/#/docs" className="font-poppins text-gray-500"> Docs</a> |
-        <a href="/#/post" className="font-poppins text-gray-500"> Write</a> |
-        <a href="/#/module" className="font-poppins text-gray-500"> Create</a>
-      </footer>
+      <Header />
+      <Footer />
 
       {/* Content container */}
       <div className="mt-20 p-6 max-w-screen-md w-full mx-auto">
