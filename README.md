@@ -1,5 +1,9 @@
 # BlockPress
 
+## Demo
+
+https://jamesbachini.github.io/BlockPress/
+
 ## Concept
 
 Trust in legacy media is at an all time low, there is a gap in the market for somewhere creators can post content longer than 280 characters that is censorship resistant and dedicated to free speech.
