@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
-import Web3 from './../components/Web3';
+import Web3 from './../BlockPress-SDK';
 
 const Post = () => {
 
