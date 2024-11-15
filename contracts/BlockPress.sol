@@ -10,7 +10,7 @@ pragma solidity ^0.8.26;
 */
 
 contract BlockPress {
-    string public version = "0.0.2";
+    string public version = "0.1.3";
 
     struct Module {
         string slug;
