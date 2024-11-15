@@ -107,7 +107,7 @@ const BlockPressApp = () => {
                 <input
                   type="text"
                   value={key}
-                  onChange={(e) => setKey(e.target.value)}
+                  onChange={(e) => setKey(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').trim())}
                   className="w-full p-2 border rounded"
                   required
                 />

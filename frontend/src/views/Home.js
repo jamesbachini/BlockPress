@@ -85,12 +85,19 @@ const BlockPressApp = () => {
       setError('Error executing code: ' + err.message);
     }
   };
+  
+  const latestPosts = () => {
+    return (
+      <div>
+        Test
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Header />
       <Footer />
-
       {/* Content container */}
       <div className="mt-20 p-6 max-w-screen-md w-full mx-auto">
         {error && (
@@ -100,70 +107,8 @@ const BlockPressApp = () => {
         <div className="grid gap-6">
           {/* Store Code Section */}
           <div className="p-4 border rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Store Code</h2>
-            <form onSubmit={storeCode} className="space-y-4">
-              <div>
-                <label className="block mb-2">Key:</label>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value)}
-                  className="w-full p-2 border rounded"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Code:</label>
-                <textarea
-                  value={code}
-                  onChange={(e) => setCode(e.target.value)}
-                  className="w-full p-2 border rounded h-32"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Storing...' : 'Store Code'}
-              </button>
-            </form>
-          </div>
-
-          {/* Fetch & Execute Code Section */}
-          <div className="p-4 border rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Fetch & Execute Code</h2>
-            <form onSubmit={fetchCode} className="space-y-4">
-              <div>
-                <label className="block mb-2">Key:</label>
-                <input
-                  type="text"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value)}
-                  className="w-full p-2 border rounded"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Fetching...' : 'Fetch Code'}
-              </button>
-            </form>
-            {fetchedCode && (
-              <div className="mt-4">
-                <h3 className="font-semibold mb-2">Fetched Code:</h3>
-                <pre className="bg-gray-100 p-4 rounded overflow-x-auto">
-                  {fetchedCode}
-                </pre>
-                <button
-                  onClick={executeCode}
-                >
-                  Execute Code
-                </button>
-              </div>
-            )}
+            <h2 className="text-xl font-semibold mb-4">For You</h2>
+            {latestPosts()}
           </div>
         </div>
       </div>
