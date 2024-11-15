@@ -21,4 +21,17 @@ contract BlockPress {
         require(bytes(modules[_key]).length == 0, "Key already taken");
         modules[_key] = _value;
     }
+
+    function recentPosts(uint _count) public view returns (string[] memory) {
+        uint maxPosts = _count > postCount ? postCount : _count;
+        uint arraySize = maxPosts * 2;
+        string[] memory recent = new string[](arraySize);
+        for (uint i = 0; i < maxPosts; i++) {
+            uint index = (maxPosts - 1 - i) * 2;
+            recent[index] = postKeys[postCount - 1 - i];
+            recent[index + 1] = posts[postKeys[postCount - 1 - i]];
+        }
+        return recent;
+    }
+
 }
