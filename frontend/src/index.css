@@ -1,13 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "@fontsource/poppins";
+@import "@fontsource/domine";
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: domine, serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6 {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+button {
+  font-size: 16px;
+  line-height: 22px;
+  padding: 12px 29px;
+  color: #333;
+  vertical-align: middle;
+  background: linear-gradient(90deg, #f7f7f7, #fff) padding-box, linear-gradient(48.23deg, #ccc 20%, #aaa 80%) border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 15px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 0px 10px;
+}
+button:hover {
+  background: linear-gradient(90deg, #fff, #fff) padding-box, linear-gradient(48.23deg, #ccc 40%, #aaa 60%) border-box;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #111b1dff;
+  outline: 1px solid rgb(45, 48, 50);
+  border-radius:3px;
+}
+
+.logo {
+  font-size: 1.4em;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  color: #222;
+}
+
+.press {
+  font-family: domine, serif;
+  color: #444;
+  font-weight: normal;
 }
