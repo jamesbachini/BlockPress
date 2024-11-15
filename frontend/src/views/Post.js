@@ -51,17 +51,12 @@ const Post = () => {
         <div className="grid gap-6">
           <div className="p-4 border rounded-lg">
             <h2 className="text-xl font-semibold mb-4">Publish</h2>  
-            <div className="relative top-4 right-4 space-x-2">
-              <a href="javascript:void(0)" onClick={() => setFormat('text')} className="text-sm">Text</a>
-              <a href="javascript:void(0)" onClick={() => setFormat('html')} className="text-sm">HTML</a>
-              <a href="javascript:void(0)" onClick={() => setFormat('markdown')} className="text-sm">Markdown</a>
-            </div>
             <form onSubmit={publish} className="space-y-4">
               <div>
-                <label className="block mb-2">Title:</label>
                 <input
                   type="text"
                   value={title}
+                  placeholder="Title"
                   onChange={(e) => {
                     setTitle(e.target.value);
                     setSlug(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').trim());
@@ -70,9 +65,20 @@ const Post = () => {
                   required
                 />
               </div>
-              <div className="t-sm mb-4">https://blockpress.com/#/p/{slug}/</div>
+              <div className="t-sm text-gray-500">https://blockpress.com/#/p/{slug}/</div>
               <div>
-                <label className="block mb-2">Post:</label>
+                <span
+                  onClick={() => setFormat('text')}
+                  className={`text-sm cursor-pointer ${format === 'text' ? 'text-gray-900' : 'text-gray-500'}`}
+                >Text</span>
+                <span
+                  onClick={() => setFormat('html')}
+                  className={`text-sm cursor-pointer px-3 ${format === 'html' ? 'text-gray-900' : 'text-gray-500'}`}
+                >HTML</span>
+                <span
+                  onClick={() => setFormat('markdown')}
+                  className={`text-sm cursor-pointer ${format === 'markdown' ? 'text-gray-900' : 'text-gray-500'}`}
+                >Markdown</span>
                 <textarea
                   value={post}
                   onChange={(e) => setPost(e.target.value)}
@@ -80,12 +86,12 @@ const Post = () => {
                   required
                 />
               </div>
-              <button
-                type="submit"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Publishing...' : 'Publish'}
-              </button>
+              <div>
+                <button>Add Media</button>
+                <button type="submit" disabled={isLoading}>
+                  {isLoading ? 'Publishing...' : 'Publish'}
+                </button>
+              </div>              
             </form>
           </div>
         </div>
