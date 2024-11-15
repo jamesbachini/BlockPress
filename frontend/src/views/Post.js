@@ -6,7 +6,9 @@ import Web3 from './../components/Web3';
 
 const Post = () => {
 
-  const [key, setKey] = useState('');
+  const [slug, setSlug] = useState('');
+  const [title, setTitle] = useState('');
+  const [format, setFormat] = useState('text');
   const [post, setPost] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -24,11 +26,10 @@ const Post = () => {
     setError('');
     try {
       if (!Web3.contract) throw new Error('Contract not initialized');
-      const tx = await Web3.contract.post(key, post);
+      const tx = await Web3.contract.post(slug, post);
       await tx.wait();
-      setKey('');
-      setPost('');
       alert('Post Published!');
+      window.location = `/#/p/${slug}`;
     } catch (err) {
       setError('Error publishing: ' + err.message);
     } finally {
@@ -49,18 +50,27 @@ const Post = () => {
         <p className="text-sm mb-6">Connected Account: {Web3.account || 'Not connected'}</p>
         <div className="grid gap-6">
           <div className="p-4 border rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Publish</h2>
+            <h2 className="text-xl font-semibold mb-4">Publish</h2>  
+            <div className="relative top-4 right-4 space-x-2">
+              <a href="javascript:void(0)" onClick={() => setFormat('text')} className="text-sm">Text</a>
+              <a href="javascript:void(0)" onClick={() => setFormat('html')} className="text-sm">HTML</a>
+              <a href="javascript:void(0)" onClick={() => setFormat('markdown')} className="text-sm">Markdown</a>
+            </div>
             <form onSubmit={publish} className="space-y-4">
               <div>
-                <label className="block mb-2">Key:</label>
+                <label className="block mb-2">Title:</label>
                 <input
                   type="text"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').trim())}
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                    setSlug(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').trim());
+                  }}
                   className="w-full p-2 border rounded"
                   required
                 />
               </div>
+              <div className="t-sm mb-4">https://blockpress.com/#/p/{slug}/</div>
               <div>
                 <label className="block mb-2">Post:</label>
                 <textarea
