@@ -5,7 +5,10 @@ import Footer from './../components/Footer';
 import Web3 from './../BlockPress-SDK';
 
 const BlockPressApp = () => {
-  const [key, setKey] = useState('');
+  const [slug, setSlug] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [format, setFormat] = useState('');
   const [code, setCode] = useState('');
   const [fetchedCode, setFetchedCode] = useState('');
   const [error, setError] = useState('');
@@ -25,10 +28,8 @@ const BlockPressApp = () => {
 
     try {
       if (!Web3.contract) throw new Error('Contract not initialized');
-      const tx = await Web3.contract.module(key, code);
+      const tx = await Web3.contract.module(slug, title, description, format, code);
       await tx.wait();
-      setKey('');
-      setCode('');
       alert('Code stored successfully!');
     } catch (err) {
       setError('Error storing code: ' + err.message);
@@ -44,7 +45,7 @@ const BlockPressApp = () => {
 
     try {
       if (!Web3.contract) throw new Error('Contract not initialized');
-      const result = await Web3.contract.modules(key);
+      const result = await Web3.contract.modules(slug);
       setFetchedCode(result);
     } catch (err) {
       setError('Error fetching code: ' + err.message);
@@ -76,15 +77,27 @@ const BlockPressApp = () => {
         <div className="grid gap-6">
           {/* Store Code Section */}
           <div className="p-4 border rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Store Code</h2>
+            <h2 className="text-xl font-semibold mb-4">Create Module</h2>
             <form onSubmit={storeCode} className="space-y-4">
               <div>
-                <label className="block mb-2">Key:</label>
                 <input
                   type="text"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').trim())}
+                  value={title}
+                  placeholder="Title"
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                    setSlug(e.target.value.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').trim());
+                  }}
                   className="w-full p-2 border rounded"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block mb-2">Description:</label>
+                <textarea
+                  value={code}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full p-2 border rounded h-16"
                   required
                 />
               </div>
@@ -92,7 +105,10 @@ const BlockPressApp = () => {
                 <label className="block mb-2">Code:</label>
                 <textarea
                   value={code}
-                  onChange={(e) => setCode(e.target.value)}
+                  onChange={(e) => {
+                    setCode(e.target.value);
+                    setFormat(`js-${Web3.version}`);
+                  }}
                   className="w-full p-2 border rounded h-32"
                   required
                 />
@@ -101,7 +117,7 @@ const BlockPressApp = () => {
                 type="submit"
                 disabled={isLoading}
               >
-                {isLoading ? 'Storing...' : 'Store Code'}
+                {isLoading ? 'Storing...' : 'Publish Code'}
               </button>
             </form>
           </div>
@@ -114,8 +130,8 @@ const BlockPressApp = () => {
                 <label className="block mb-2">Key:</label>
                 <input
                   type="text"
-                  value={key}
-                  onChange={(e) => setKey(e.target.value)}
+                  value={slug}
+                  onChange={(e) => setSlug(e.target.value)}
                   className="w-full p-2 border rounded"
                   required
                 />

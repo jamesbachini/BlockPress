@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ethers } from 'ethers';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import Web3 from './../BlockPress-SDK';
+import { NFTStorage, File } from 'nft.storage';
 
 const base = window.location.href.includes('/BlockPress') ? '/BlockPress' : '';
 
 const Post = () => {
-
   const [slug, setSlug] = useState('');
   const [title, setTitle] = useState('');
   const [image, setImage] = useState('');
@@ -15,6 +15,8 @@ const Post = () => {
   const [content, setContent] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const initialize = async () => {
@@ -23,6 +25,34 @@ const Post = () => {
     initialize();
   }, []);
 
+  const handleButtonClick = () => {
+    window.open('https://app.pinata.cloud/', '_blank');
+    const cid = prompt('Enter the Image CID');
+    setImage(`https://ipfs.io/ipfs/${cid}`);
+    //fileInputRef.current.click();
+  };
+  
+  const handleFileChange = async (event) => {
+    console.log('chng',event.target.files[0])
+    const file = event.target.files[0];
+    const NFT_KEY = { token: '3590e52e.a041eb72fca24c758ee468b741591c43' }
+    const client = new NFTStorage(NFT_KEY);
+    try {
+      const metadata = await client.store({
+        name: file.name,
+        description: title,
+        image: new File([file], file.name, { type: file.type }),
+      });
+      console.log('metadata',metadata);
+      console.log('url',metadata.data.image.href);
+      setImage(metadata.data.image.href);
+    } catch (error) {
+      setError('Upload failed:', error);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
   const publish = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -30,8 +60,8 @@ const Post = () => {
     try {
       if (!Web3.contract) throw new Error('Contract not initialized');
       const tx = await Web3.contract.post(slug, title, image, format, content);
+      window.open(`${Web3.explorer}/tx/${tx.hash}`, '_blank');
       await tx.wait();
-      alert('Post Published!');
       window.location = `${base}/#/bp/${slug}`;
     } catch (err) {
       setError('Error publishing: ' + err.message);
@@ -90,7 +120,10 @@ const Post = () => {
                 />
               </div>
               <div>
-                <button>Add Media</button>
+                <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} />
+                <button onClick={handleButtonClick} disabled={isUploading}>
+                  {isUploading ? 'Uploading...' : 'Add Media'}
+                </button>
                 <button type="submit" disabled={isLoading}>
                   {isLoading ? 'Publishing...' : 'Publish'}
                 </button>

@@ -51,7 +51,6 @@ L2's
 
 Flow -  Most Killer App Potential
 Polygon - User Onboarding Challenge: Simplifying Web3 Access on Polygon
-Kinto - need to use their APIs
 Mantle - Best UX / UI Project
 Rootstock - BTC EVM
 Morph - Best Consumer Applications build on Morph
