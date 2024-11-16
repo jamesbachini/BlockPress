@@ -5,9 +5,18 @@ import Web3 from './../BlockPress-SDK';
 
 const base = window.location.href.includes('/BlockPress') ? '/BlockPress' : '';
 
+const escapeHtml = (html) => {
+    return html
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 const BlockPressApp = () => {
   const [error, setError] = useState('');
-  const [recentPosts, setRecentPosts] = useState('');
+  const [recentModules, setRecentModules] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -15,8 +24,8 @@ const BlockPressApp = () => {
         await Web3.init();
         try {
           if (!Web3.contract) throw new Error('Contract not initialized');
-          const posts = await Web3.contract.recentPosts(20);
-          setRecentPosts(posts);
+          const posts = await Web3.contract.recentModules(20);
+          setRecentModules(posts);
         } catch (err) {
           setError('Error publishing: ' + err.message);
         }
@@ -24,15 +33,16 @@ const BlockPressApp = () => {
     initialize();
   }, []);
 
-  const formatPosts = () => {
+  const formatModules = () => {
     let html = '<div>';
-    for (const i in recentPosts) {
-      const p = recentPosts[i];
-      html += `<a href="${base}/#/bp/${p.slug}"><div class="my-8">`;
-      html += `<h2 class="text-xl">${p.title}</h2>`;
-      html += `<p class="my-3">${p.content.substr(0,150)}</p>`;
-      html += `<a href="${base}/#/bp/${p.slug}" class="text-sm text-gray-500">${base}/#/bp/${p.slug}</a>`;
-      html += `</div></a>`;
+    for (const i in recentModules) {
+      const p = recentModules[i];
+      html += `<div class="my-8">`;
+      html += `<h2 class="text-lg">${p.title}</h2>`;
+      html += `<p class="my-3">${p.description}</p>`;
+      html += `<pre class="my-3 text-xs max-h-32 border overflow-y-auto overflow-x-hidden"><code>${escapeHtml(p.code)}</code></pre>`;
+      html += `<pre class="my-3 text-xs text-gray-400"><code>bpImport('${p.slug}');</code></pre>`;
+      html += `</div><hr />`;
     }
     html += `</div>`;
     return html;
@@ -47,8 +57,8 @@ const BlockPressApp = () => {
         <p className="text-sm mb-6">Connected Account: {Web3.account || 'Not connected'}</p>
         <div className="grid gap-6">
           <div className="p-4 border rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">For You</h2>
-            <div dangerouslySetInnerHTML={{ __html: formatPosts() }} />
+            <h2 className="text-xl font-semibold mb-4">Shared Modules</h2>
+            <div dangerouslySetInnerHTML={{ __html: formatModules() }} />
           </div>
         </div>
       </div>

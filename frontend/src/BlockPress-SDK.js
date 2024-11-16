@@ -46,13 +46,18 @@ const SDK = {
             if (network.chainId === 31) this.explorer = 'https://explorer.testnet.rootstock.io/';
             if (network.chainId === 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
             if (network.chainId === 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
-            this.signer = await this.provider.getSigner();
-            this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
-            this.account = this.signer.address;
+            if (window.ethereum) {
+              this.signer = await this.provider.getSigner();
+              this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
+              this.account = this.signer.address;
+            } else {
+              this.provider = new ethers.JsonRpcProvider('https://rpc.sepolia.org');
+              this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.provider);
+              this.account = '...';
+            }
             window.ethereum.on('accountsChanged', (accounts) => {
                 console.log('Accounts changed:', accounts);
             });
-
         } catch (err) {
             console.error('Error initializing Web3:', err.message);
         }

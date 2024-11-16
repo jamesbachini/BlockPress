@@ -5,6 +5,7 @@ import Module from './views/Module';
 import Post from './views/Post';
 import Docs from './views/Docs';
 import Load from './views/Load';
+import Integrate from './views/Integrate';
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/module" element={<Module />} />
       <Route path="/post" element={<Post />} />
       <Route path="/docs" element={<Docs />} />
+      <Route path="/integrate" element={<Integrate />} />
       <Route path="/bp/*" element={<Load />} />
     </Routes>
   );
