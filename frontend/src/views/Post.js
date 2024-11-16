@@ -29,7 +29,7 @@ const Post = () => {
       const tx = await Web3.contract.post(slug, post);
       await tx.wait();
       alert('Post Published!');
-      window.location = `/#/p/${slug}`;
+      window.location = `/#/bp/${slug}`;
     } catch (err) {
       setError('Error publishing: ' + err.message);
     } finally {
