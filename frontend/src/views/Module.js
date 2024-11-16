@@ -45,7 +45,7 @@ const BlockPressApp = () => {
     try {
       if (!Web3.contract) throw new Error('Contract not initialized');
       const result = await Web3.contract.modules(slug);
-      setFetchedCode(result);
+      setFetchedCode(result.code);
     } catch (err) {
       setError('Error fetching code: ' + err.message);
     } finally {
@@ -94,7 +94,7 @@ const BlockPressApp = () => {
               <div>
                 <label className="block mb-2">Description:</label>
                 <textarea
-                  value={code}
+                  value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   className="w-full p-2 border rounded h-16"
                   required

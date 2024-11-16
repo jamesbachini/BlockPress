@@ -30,9 +30,7 @@ Elon Musk is able to launch rockets and catch them with chopsticks but he hasn't
 
 In the future it might be possible to embed the BlockPress-SDK into browsers so the decentralized web could be loaded directly without DNS using a URL like: bp://0xjames-news/my-first-webpage
 
-0xjames-news would be the name of the site that loads the code modules to render the layout and my-first-webpage would load that individual post with the authors content.
-
-Filecoin
+0xjames-news would be the name of the site that loads the code modules to render the layout and my-first-webpage would load that individual post with the authors content. 
 
 Developers could customise their own sites by building javascript modules similar to react modules which can then be stored on-chain and shared between users.
 
