@@ -8,8 +8,9 @@ const Post = () => {
 
   const [slug, setSlug] = useState('');
   const [title, setTitle] = useState('');
+  const [image, setImage] = useState('');
   const [format, setFormat] = useState('text');
-  const [post, setPost] = useState('');
+  const [content, setContent] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,7 +27,7 @@ const Post = () => {
     setError('');
     try {
       if (!Web3.contract) throw new Error('Contract not initialized');
-      const tx = await Web3.contract.post(slug, post);
+      const tx = await Web3.contract.post(slug, title, image, format, content);
       await tx.wait();
       alert('Post Published!');
       window.location = `/#/bp/${slug}`;
@@ -65,7 +66,7 @@ const Post = () => {
                   required
                 />
               </div>
-              <div className="t-sm text-gray-500">https://blockpress.com/#/p/{slug}/</div>
+              <div className="t-sm text-gray-500">https://blockpress.com/#/bp/{slug}/</div>
               <div>
                 <span
                   onClick={() => setFormat('text')}
@@ -80,8 +81,8 @@ const Post = () => {
                   className={`text-sm cursor-pointer ${format === 'markdown' ? 'text-gray-900' : 'text-gray-500'}`}
                 >Markdown</span>
                 <textarea
-                  value={post}
-                  onChange={(e) => setPost(e.target.value)}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
                   className="w-full p-2 border rounded h-96"
                   required
                 />

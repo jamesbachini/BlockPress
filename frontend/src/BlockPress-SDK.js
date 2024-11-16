@@ -23,7 +23,10 @@ const SDK = {
         } catch (err) {
             console.error('Error initializing Web3:', err.message);
         }
-    }
+    },
+    fetchPost: async function (slug) {
+      return await this.contract.posts(slug);
+    },
 };
 
 export default SDK;

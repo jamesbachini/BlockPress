@@ -15,22 +15,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   padding: 12px 29px;
   color: #333;
   vertical-align: middle;
-  background: linear-gradient(90deg, #f7f7f7, #fff) padding-box, linear-gradient(48.23deg, #ccc 20%, #aaa 80%) border-box;
+  background: linear-gradient(90deg, #fff, #fff) padding-box, linear-gradient(48.23deg, #ccc 20%, #aaa 80%) border-box;
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
   letter-spacing: 1px;
   margin: 0px 10px;
 }
 button:hover {
-  background: linear-gradient(90deg, #fff, #fff) padding-box, linear-gradient(48.23deg, #ccc 40%, #aaa 60%) border-box;
+  background: linear-gradient(90deg, #f7f7f7, #fff) padding-box, linear-gradient(48.23deg, #ccc 40%, #aaa 60%) border-box;
 }
 ::-webkit-scrollbar {
   width: 5px;

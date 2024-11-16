@@ -16,19 +16,19 @@ No one selling your data, no monthly fees for hosting or cloud services, pay a t
 
 Here’s how it works:
 
-The key concept here is that we can store code in a smart contract. Not Solidity but HTML, JavaScript and CSS. These are the languages of the web and we can build decentralised applications by storing this code remotely on a Blockchain.
+The key concept here is that we can store code in a smart contract. Not Solidity but HTML, JavaScript and CSS. These are the languages of the web and we can build decentralised applications by storing this code remotely on EVM blockchains.
 
 Over time this could evolve into an open-source library of web developer plugins which can be combined to create websites, blogs and decentralized apps.
 
-The BlockPress smart contract stores code modules and posts along with associated metadata.
-
-A browser still needs an access point to load the blockpress-sdk and direct queries to the right smart contracts. For the hackathon we built this into a mini app for worldcoin and used the world ID to provide sybil protection.
+The BlockPress smart contract stores code modules and posts along with associated metadata but a browser still needs an access point to load the blockpress-sdk and direct queries to the right smart contract. For the hackathon we built this into a mini app for worldcoin and used the world ID to provide sybil protection.
 
 Elon Musk is able to launch rockets and catch them with chopsticks but he hasn't managed to stop the bots spamming X. World ID's enable us to launch a social network of humans reducing spam and creating a real town square for the digitial age.
 
 In the future it might be possible to embed the BlockPress-SDK into browsers so the decentralized web could be loaded directly without DNS using a URL like: bp://0xjames-news/my-first-webpage
 
 0xjames-news would be the name of the site that loads the code modules to render the layout and my-first-webpage would load that individual post with the authors content.
+
+Filecoin
 
 Developers could customise their own sites by building javascript modules similar to react modules which can then be stored on-chain and shared between users.
 
