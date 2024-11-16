@@ -4,6 +4,8 @@ import Header from './../components/Header';
 import Footer from './../components/Footer';
 import Web3 from './../BlockPress-SDK';
 
+const base = window.location.href.includes('/BlockPress') ? '/BlockPress' : '';
+
 const Post = () => {
 
   const [slug, setSlug] = useState('');
@@ -30,7 +32,7 @@ const Post = () => {
       const tx = await Web3.contract.post(slug, title, image, format, content);
       await tx.wait();
       alert('Post Published!');
-      window.location = `/#/bp/${slug}`;
+      window.location = `${base}/#/bp/${slug}`;
     } catch (err) {
       setError('Error publishing: ' + err.message);
     } finally {

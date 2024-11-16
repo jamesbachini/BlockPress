@@ -37,6 +37,7 @@ const Load = () => {
         <div className="mt-20 p-6 max-w-screen-md w-full mx-auto">
             {error && (<div className="mb-4 text-red-600 font-semibold">{error}</div>)}
             <h1 className="text-3xl">{title}</h1>
+            {image && (<div className="my-8"><img className="w-full" src={image} /></div>)}
             <div className="my-8">{content}</div>
         </div>
             
