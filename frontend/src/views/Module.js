@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import Web3 from './../BlockPress-SDK';
@@ -16,7 +15,7 @@ const BlockPressApp = () => {
 
   useEffect(() => {
     const initialize = async () => {
-        await Web3.initializeEthers();
+        await Web3.init();
     };
     initialize();
   }, []);

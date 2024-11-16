@@ -13,7 +13,7 @@ const BlockPressApp = () => {
 
   useEffect(() => {
     const initialize = async () => {
-        await Web3.initializeEthers();
+        await Web3.init();
         try {
           if (!Web3.contract) throw new Error('Contract not initialized');
           const posts = await Web3.contract.recentPosts(20);

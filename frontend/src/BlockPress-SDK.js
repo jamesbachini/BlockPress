@@ -1,5 +1,17 @@
 import { ethers } from 'ethers';
-import { Web3Auth } from "@web3auth/modal";
+import ReactDOM from 'react-dom/client';
+import { DynamicContextProvider, DynamicWidget } from '@dynamic-labs/sdk-react-core';
+import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
+
+const dynamic = () => {
+  return (<DynamicContextProvider
+    settings={{
+      environmentId: 'fdcf16d4-9ce2-4a39-a4cc-3f9e516e0abb',
+      walletConnectors: [ EthereumWalletConnectors ],
+    }}>
+    <DynamicWidget />
+  </DynamicContextProvider>);
+}
 
 const SDK = {
     version: "0.1.3",
@@ -11,43 +23,36 @@ const SDK = {
     account: null,
     explorer: null,
     web3auth: null,
-    initializeEthers: async function () {
+    init: async function () {
         try {
             if (window.ethereum) {
-                this.provider = new ethers.BrowserProvider(window.ethereum);
-                const network = await this.provider.getNetwork();
-                if (network.chainId == 11155111) this.explorer = 'https://eth-sepolia.blockscout.com/';
-                if (network.chainId == 4801) this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
-                if (network.chainId == 545) {
-                  this.explorer = 'https://evm-testnet.flowscan.io/';
-                  this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
-                }
-                if (network.chainId == 1442) this.explorer = 'https://explorer-ui.cardona.zkevm-rpc.com/';
-                if (network.chainId == 5003) this.explorer = 'https://explorer.sepolia.mantle.xyz/';
-                if (network.chainId == 31) this.explorer = 'https://explorer.testnet.rootstock.io/';
-                if (network.chainId == 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
-                if (network.chainId == 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
-                this.signer = await this.provider.getSigner();
-                this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
-                this.account = this.signer.address;
-                window.ethereum.on('accountsChanged', (accounts) => {
-                    console.log('Accounts changed:', accounts);
-                });
-
+              this.provider = new ethers.BrowserProvider(window.ethereum);
             } else {
-              this.web3auth = new Web3Auth({
-                clientId: "BJKkBDy2NcWI6ukgc2wpfY4_TzqPIPrj5cdR5gO6c5tpxZorP3dEUWuKpYanMdb0zvJPSpuScgvOKorLkrrDxfQ",
-                chainConfig: {
-                  chainNamespace: "eip155",
-                  chainId: "0x221", // Flow (Sepolia = 0xaa36a7)
-                  rpcTarget: "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID", // Replace with your RPC URL
-                },
-              });
-      
-              await this.web3auth.initModal();
-      
-              const provider = await this.web3auth.connect();
+              const container = document.createElement('div');
+              container.id = 'dynamic-widget-container';
+              document.body.appendChild(container);
+              const root = ReactDOM.createRoot(container);
+              root.render(dynamic());
             }
+            const network = await this.provider.getNetwork();
+            if (network.chainId === 11155111) this.explorer = 'https://eth-sepolia.blockscout.com/';
+            if (network.chainId === 4801) this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
+            if (network.chainId === 545) {
+              this.explorer = 'https://evm-testnet.flowscan.io/';
+              this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+            }
+            if (network.chainId === 1442) this.explorer = 'https://explorer-ui.cardona.zkevm-rpc.com/';
+            if (network.chainId === 5003) this.explorer = 'https://explorer.sepolia.mantle.xyz/';
+            if (network.chainId === 31) this.explorer = 'https://explorer.testnet.rootstock.io/';
+            if (network.chainId === 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
+            if (network.chainId === 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
+            this.signer = await this.provider.getSigner();
+            this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
+            this.account = this.signer.address;
+            window.ethereum.on('accountsChanged', (accounts) => {
+                console.log('Accounts changed:', accounts);
+            });
+
         } catch (err) {
             console.error('Error initializing Web3:', err.message);
         }
