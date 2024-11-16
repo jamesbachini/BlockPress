@@ -39,9 +39,10 @@ I believe permissionless publishing and decentralized social media is going to d
 BlockPress is a censorship resistant web3 platform where communities can share ideas without interference.
 
 
-## Possible Tech Integrations
+## Tech Integrations
 
-https://ethglobal.com/events/bangkok/prizes#blockless
+Worldcoin miniapp URL: https://developer.worldcoin.org/teams/team_001f976888bf9a06973641d5881bf858/apps/app_f789402cd9182a26d13a28dd2bb9449f/configuration
+
 
 Protocol Labs - filecoin to host images?
 Worldcoin mini-app - frontend?

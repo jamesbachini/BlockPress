@@ -48,8 +48,14 @@ const SDK = {
                 this.explorer = 'https://explorer.testnet.rootstock.io/';
                 this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
               }
-              if (network.chainId === 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
-              if (network.chainId === 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
+              if (network.chainId === 2810) {
+                this.explorer = 'https://explorer-holesky.morphl2.io/';
+                this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+              }
+              if (network.chainId === 59141) {
+                this.explorer = 'https://explorer.sepolia.linea.build/';
+                this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+              }
               this.signer = await this.provider.getSigner();
               this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
               this.account = this.signer.address;
