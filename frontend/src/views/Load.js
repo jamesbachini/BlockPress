@@ -16,7 +16,7 @@ const Load = () => {
 
   useEffect(() => {
     const initialize = async () => {
-        await Web3.initializeEthers();
+        await Web3.init();
         const passedSlug = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         const post = await Web3.fetchPost(passedSlug);
         setSlug(post.slug);
@@ -29,6 +29,12 @@ const Load = () => {
   }, []);
 
 
+  const formatContent = () => {
+    if (format === 'html') return content;
+    if (format === 'text') return content.split("\n").join('<br />');
+    if (format === 'markdown') return content.split("\n").join('<br />'); // 2do
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center">
         <Header />
@@ -38,7 +44,7 @@ const Load = () => {
             {error && (<div className="mb-4 text-red-600 font-semibold">{error}</div>)}
             <h1 className="text-3xl">{title}</h1>
             {image && (<div className="my-8"><img className="w-full" src={image} /></div>)}
-            <div className="my-8">{content}</div>
+            <div className="my-8" dangerouslySetInnerHTML={{ __html: formatContent() }}></div>
         </div>
             
     </div>

@@ -118,20 +118,18 @@ const Post = () => {
                   required
                 />
               </div>
-              <div>
-                <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} />
-                <button onClick={handleButtonClick} disabled={isUploading}>
-                  {isUploading ? 'Uploading...' : 'Add Media'}
-                </button>
                 <button type="submit" disabled={isLoading}>
                   {isLoading ? 'Publishing...' : 'Publish'}
                 </button>
-              </div>              
-            </form>
+              </form>
+              <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} />
+                <button onClick={handleButtonClick} disabled={isUploading}>
+                  {isUploading ? 'Uploading...' : 'Add Media'}
+                </button>
+            </div>              
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -25,14 +25,17 @@ const BlockPressApp = () => {
   }, []);
 
   const formatPosts = () => {
-    let html = '<div>';
+    let html = `<div>`;
     for (const i in recentPosts) {
       const p = recentPosts[i];
-      html += `<a href="${base}/#/bp/${p.slug}"><div class="my-8">`;
+      html += `<a href="${base}/#/bp/${p.slug}">`;
+      html += `<div class="flex w-full"><div class="w-3/4 p-4">`;
       html += `<h2 class="text-xl">${p.title}</h2>`;
       html += `<p class="my-3">${p.content.substr(0,150)}</p>`;
-      html += `<a href="${base}/#/bp/${p.slug}" class="text-sm text-gray-500">${base}/#/bp/${p.slug}</a>`;
-      html += `</div></a>`;
+      html += `<p class="text-xs text-gray-500">${base}/#/bp/${p.slug}</p>`;
+      html += `</div><div class="w-1/4">`;
+      html += `<img src="${p.image}" alt="" class="w-full h-auto" />`;
+      html += `</div></div></a>`;
     }
     html += `</div>`;
     return html;
