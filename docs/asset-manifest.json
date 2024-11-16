@@ -1,7 +1,13 @@
 {
   "files": {
-    "main.css": "/BlockPress/static/css/main.54624e4c.css",
-    "main.js": "/BlockPress/static/js/main.067fca25.js",
+    "main.css": "/BlockPress/static/css/main.e0e2f793.css",
+    "main.js": "/BlockPress/static/js/main.094fb2b2.js",
+    "static/js/998.f4a3c22e.chunk.js": "/BlockPress/static/js/998.f4a3c22e.chunk.js",
+    "static/js/842.71df8024.chunk.js": "/BlockPress/static/js/842.71df8024.chunk.js",
+    "static/js/699.022ce139.chunk.js": "/BlockPress/static/js/699.022ce139.chunk.js",
+    "static/js/55.d2def75a.chunk.js": "/BlockPress/static/js/55.d2def75a.chunk.js",
+    "static/js/171.c9afd99b.chunk.js": "/BlockPress/static/js/171.c9afd99b.chunk.js",
+    "static/js/126.0ec5f62e.chunk.js": "/BlockPress/static/js/126.0ec5f62e.chunk.js",
     "static/media/domine-latin-400-normal.woff": "/BlockPress/static/media/domine-latin-400-normal.bac640a8310d276674a7.woff",
     "static/media/domine-latin-400-normal.woff2": "/BlockPress/static/media/domine-latin-400-normal.f768863d794125c42307.woff2",
     "static/media/domine-latin-ext-400-normal.woff": "/BlockPress/static/media/domine-latin-ext-400-normal.fe17f6618fa91aabb48c.woff",
@@ -11,11 +17,17 @@
     "static/media/poppins-latin-ext-400-normal.woff": "/BlockPress/static/media/poppins-latin-ext-400-normal.cf7e1ed83eb19f7b1ea6.woff",
     "static/media/poppins-latin-ext-400-normal.woff2": "/BlockPress/static/media/poppins-latin-ext-400-normal.6f94f40f848d79872444.woff2",
     "index.html": "/BlockPress/index.html",
-    "main.54624e4c.css.map": "/BlockPress/static/css/main.54624e4c.css.map",
-    "main.067fca25.js.map": "/BlockPress/static/js/main.067fca25.js.map"
+    "main.e0e2f793.css.map": "/BlockPress/static/css/main.e0e2f793.css.map",
+    "main.094fb2b2.js.map": "/BlockPress/static/js/main.094fb2b2.js.map",
+    "998.f4a3c22e.chunk.js.map": "/BlockPress/static/js/998.f4a3c22e.chunk.js.map",
+    "842.71df8024.chunk.js.map": "/BlockPress/static/js/842.71df8024.chunk.js.map",
+    "699.022ce139.chunk.js.map": "/BlockPress/static/js/699.022ce139.chunk.js.map",
+    "55.d2def75a.chunk.js.map": "/BlockPress/static/js/55.d2def75a.chunk.js.map",
+    "171.c9afd99b.chunk.js.map": "/BlockPress/static/js/171.c9afd99b.chunk.js.map",
+    "126.0ec5f62e.chunk.js.map": "/BlockPress/static/js/126.0ec5f62e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.54624e4c.css",
-    "static/js/main.067fca25.js"
+    "static/css/main.e0e2f793.css",
+    "static/js/main.094fb2b2.js"
   ]
 }
