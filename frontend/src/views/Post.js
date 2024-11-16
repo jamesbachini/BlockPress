@@ -26,8 +26,10 @@ const Post = () => {
 
   const handleButtonClick = () => {
     window.open('https://app.pinata.cloud/', '_blank');
-    const cid = prompt('Enter the Image CID');
-    setImage(`https://ipfs.io/ipfs/${cid}`);
+    setTimeout(() => {
+      const cid = prompt('Enter the Image CID');
+      setImage(`https://ipfs.io/ipfs/${cid}`);
+    }, 1000);
     //fileInputRef.current.click();
   };
   
