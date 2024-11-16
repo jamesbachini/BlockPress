@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BlockPress/static/css/main.54624e4c.css",
-    "main.js": "/BlockPress/static/js/main.a302e725.js",
+    "main.js": "/BlockPress/static/js/main.067fca25.js",
     "static/media/domine-latin-400-normal.woff": "/BlockPress/static/media/domine-latin-400-normal.bac640a8310d276674a7.woff",
     "static/media/domine-latin-400-normal.woff2": "/BlockPress/static/media/domine-latin-400-normal.f768863d794125c42307.woff2",
     "static/media/domine-latin-ext-400-normal.woff": "/BlockPress/static/media/domine-latin-ext-400-normal.fe17f6618fa91aabb48c.woff",
@@ -12,10 +12,10 @@
     "static/media/poppins-latin-ext-400-normal.woff2": "/BlockPress/static/media/poppins-latin-ext-400-normal.6f94f40f848d79872444.woff2",
     "index.html": "/BlockPress/index.html",
     "main.54624e4c.css.map": "/BlockPress/static/css/main.54624e4c.css.map",
-    "main.a302e725.js.map": "/BlockPress/static/js/main.a302e725.js.map"
+    "main.067fca25.js.map": "/BlockPress/static/js/main.067fca25.js.map"
   },
   "entrypoints": [
     "static/css/main.54624e4c.css",
-    "static/js/main.a302e725.js"
+    "static/js/main.067fca25.js"
   ]
 }
