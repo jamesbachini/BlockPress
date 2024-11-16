@@ -27,30 +27,27 @@ const SDK = {
         try {
             if (window.ethereum) {
               this.provider = new ethers.BrowserProvider(window.ethereum);
+              const network = await this.provider.getNetwork();
+              if (network.chainId === 11155111) this.explorer = 'https://eth-sepolia.blockscout.com/';
+              if (network.chainId === 4801) this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
+              if (network.chainId === 545) {
+                this.explorer = 'https://evm-testnet.flowscan.io/';
+                this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+              }
+              if (network.chainId === 1442) this.explorer = 'https://explorer-ui.cardona.zkevm-rpc.com/';
+              if (network.chainId === 5003) this.explorer = 'https://explorer.sepolia.mantle.xyz/';
+              if (network.chainId === 31) this.explorer = 'https://explorer.testnet.rootstock.io/';
+              if (network.chainId === 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
+              if (network.chainId === 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
+              this.signer = await this.provider.getSigner();
+              this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
+              this.account = this.signer.address;
             } else {
               const container = document.createElement('div');
               container.id = 'dynamic-widget-container';
               document.body.appendChild(container);
               const root = ReactDOM.createRoot(container);
               root.render(dynamic());
-            }
-            const network = await this.provider.getNetwork();
-            if (network.chainId === 11155111) this.explorer = 'https://eth-sepolia.blockscout.com/';
-            if (network.chainId === 4801) this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
-            if (network.chainId === 545) {
-              this.explorer = 'https://evm-testnet.flowscan.io/';
-              this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
-            }
-            if (network.chainId === 1442) this.explorer = 'https://explorer-ui.cardona.zkevm-rpc.com/';
-            if (network.chainId === 5003) this.explorer = 'https://explorer.sepolia.mantle.xyz/';
-            if (network.chainId === 31) this.explorer = 'https://explorer.testnet.rootstock.io/';
-            if (network.chainId === 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
-            if (network.chainId === 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
-            if (window.ethereum) {
-              this.signer = await this.provider.getSigner();
-              this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.signer);
-              this.account = this.signer.address;
-            } else {
               this.provider = new ethers.JsonRpcProvider('https://rpc.sepolia.org');
               this.contract = new ethers.Contract(this.contractAddress, this.contractABI, this.provider);
               this.account = '...';
