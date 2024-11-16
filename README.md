@@ -16,7 +16,11 @@ No one selling your data, no monthly fees for hosting or cloud services, pay a t
 
 Here’s how it works:
 
-The key concept here is that we can store code in a smart contract. Not Solidity but HTML, JavaScript and CSS. These are the languages of the web and we can build decentralised applications by storing this code remotely on EVM blockchains.
+The key concept here is that we can store code in a smart contract. Not Solidity but HTML, JavaScript and CSS. These are the languages of the web and we can build decentralised applications by storing this code remotely on EVM blockchains. The following testnets are currently supported are:
+
+Ethereum Sepolia, Worldchain, Flow, Polygon zkEVM, Mantle, Rootstock, Morth and Linea
+
+Contracts are deployed and verified in blockscout.
 
 Over time this could evolve into an open-source library of web developer plugins which can be combined to create websites, blogs and decentralized apps.
 
