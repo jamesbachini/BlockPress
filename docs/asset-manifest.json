@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BlockPress/static/css/main.e0e2f793.css",
-    "main.js": "/BlockPress/static/js/main.094fb2b2.js",
+    "main.css": "/BlockPress/static/css/main.998b501f.css",
+    "main.js": "/BlockPress/static/js/main.818ae63f.js",
     "static/js/998.f4a3c22e.chunk.js": "/BlockPress/static/js/998.f4a3c22e.chunk.js",
     "static/js/842.71df8024.chunk.js": "/BlockPress/static/js/842.71df8024.chunk.js",
     "static/js/699.022ce139.chunk.js": "/BlockPress/static/js/699.022ce139.chunk.js",
@@ -17,8 +17,8 @@
     "static/media/poppins-latin-ext-400-normal.woff": "/BlockPress/static/media/poppins-latin-ext-400-normal.cf7e1ed83eb19f7b1ea6.woff",
     "static/media/poppins-latin-ext-400-normal.woff2": "/BlockPress/static/media/poppins-latin-ext-400-normal.6f94f40f848d79872444.woff2",
     "index.html": "/BlockPress/index.html",
-    "main.e0e2f793.css.map": "/BlockPress/static/css/main.e0e2f793.css.map",
-    "main.094fb2b2.js.map": "/BlockPress/static/js/main.094fb2b2.js.map",
+    "main.998b501f.css.map": "/BlockPress/static/css/main.998b501f.css.map",
+    "main.818ae63f.js.map": "/BlockPress/static/js/main.818ae63f.js.map",
     "998.f4a3c22e.chunk.js.map": "/BlockPress/static/js/998.f4a3c22e.chunk.js.map",
     "842.71df8024.chunk.js.map": "/BlockPress/static/js/842.71df8024.chunk.js.map",
     "699.022ce139.chunk.js.map": "/BlockPress/static/js/699.022ce139.chunk.js.map",
@@ -27,7 +27,7 @@
     "126.0ec5f62e.chunk.js.map": "/BlockPress/static/js/126.0ec5f62e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0e2f793.css",
-    "static/js/main.094fb2b2.js"
+    "static/css/main.998b501f.css",
+    "static/js/main.818ae63f.js"
   ]
 }
