@@ -29,14 +29,25 @@ const SDK = {
               this.provider = new ethers.BrowserProvider(window.ethereum);
               const network = await this.provider.getNetwork();
               if (network.chainId === 11155111) this.explorer = 'https://eth-sepolia.blockscout.com/';
-              if (network.chainId === 4801) this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
+              if (network.chainId === 4801) {
+                this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
+                this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
               if (network.chainId === 545) {
                 this.explorer = 'https://evm-testnet.flowscan.io/';
                 this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
               }
-              if (network.chainId === 1442) this.explorer = 'https://explorer-ui.cardona.zkevm-rpc.com/';
-              if (network.chainId === 5003) this.explorer = 'https://explorer.sepolia.mantle.xyz/';
-              if (network.chainId === 31) this.explorer = 'https://explorer.testnet.rootstock.io/';
+              if (network.chainId === 4801) {
+                this.explorer = 'https://www.okx.com/web3/explorer/amoy/';
+                this.contract = '0x0246B582B64C34a5a7a28c3B7b1637cF5D4598a7';
+              }
+              if (network.chainId === 5003) {
+                this.explorer = 'https://explorer.sepolia.mantle.xyz/';
+                this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+              }
+              if (network.chainId === 31) {
+                this.explorer = 'https://explorer.testnet.rootstock.io/';
+                this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+              }
               if (network.chainId === 2810) this.explorer = 'https://explorer-holesky.morphl2.io/';
               if (network.chainId === 59141) this.explorer = 'https://explorer.sepolia.linea.build/';
               this.signer = await this.provider.getSigner();
