@@ -25,11 +25,9 @@ const Post = () => {
   }, []);
 
   const handleButtonClick = () => {
-    window.open('https://app.pinata.cloud/', '_blank');
-    setTimeout(() => {
-      const cid = prompt('Enter the Image CID');
-      setImage(`https://ipfs.io/ipfs/${cid}`);
-    }, 1000);
+    //window.open('https://app.pinata.cloud/', '_blank');
+    const cid = prompt('Enter the Image CID');
+    setImage(`https://ipfs.io/ipfs/${cid}`);
     //fileInputRef.current.click();
   };
   
@@ -120,12 +118,12 @@ const Post = () => {
                   required
                 />
               </div>
-                <button type="submit" disabled={isLoading}>
+                <button className="float-left" type="submit" disabled={isLoading}>
                   {isLoading ? 'Publishing...' : 'Publish'}
                 </button>
               </form>
               <input type="file" accept="image/*" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} />
-                <button onClick={handleButtonClick} disabled={isUploading}>
+                <button className="float-right mt-4" onClick={handleButtonClick} disabled={isUploading}>
                   {isUploading ? 'Uploading...' : 'Add Media'}
                 </button>
             </div>              

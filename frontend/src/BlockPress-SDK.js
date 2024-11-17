@@ -32,6 +32,7 @@ const SDK = {
               if (network.chainId === 4801) {
                 this.explorer = 'https://worldchain-sepolia.explorer.alchemy.com/';
                 this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
+              }
               if (network.chainId === 545) {
                 this.explorer = 'https://evm-testnet.flowscan.io/';
                 this.contract = '0x484Ec30Feff505b545Ed7b905bc25a6a40589181';
