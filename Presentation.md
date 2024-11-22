@@ -17,3 +17,8 @@ Engagement is critical. Show your enthusiasm—judges respond to presenters who 
 Finally, be prepared for questions. This is your chance to demonstrate not only your depth of knowledge but also your ability to think on your feet. Listen carefully to the judges, address their questions thoughtfully, and use their queries as opportunities to reinforce your project’s strengths.
 
 Hackathons are as much about storytelling as they are about innovation. A well-delivered presentation communicates not just what you built, but why it matters. With the right mix of preparation, focus, and enthusiasm, you can turn your hackathon project into a memorable highlight for both the judges and your audience.
+
+
+-------------
+
+document.body.style.backgroundColor = "#DDD";
